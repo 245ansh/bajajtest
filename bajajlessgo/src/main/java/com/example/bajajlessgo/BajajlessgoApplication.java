@@ -57,7 +57,7 @@ public class BajajlessgoApplication implements CommandLineRunner {
             submission.put("finalQuery", finalSqlQuery);
 			HttpHeaders postHeaders = new HttpHeaders();
             postHeaders.setContentType(MediaType.APPLICATION_JSON);
-            postHeaders.set("Authorization", accessToken); // Remove "Bearer " prefix as it might be already included
+            postHeaders.set("Authorization", accessToken);
 
             HttpEntity<String> postEntity = new HttpEntity<>(submission.toString(), postHeaders);
             ResponseEntity<String> postResponse = restTemplate.postForEntity(webhookUrl, postEntity, String.class);
